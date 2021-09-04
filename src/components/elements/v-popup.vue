@@ -14,23 +14,6 @@
                     <vLoading />
                 </div>
                 <div class="v-popup-conent" v-else>
-                    <div
-                            class="v-popup-alert"
-                            v-if="showAlert"
-                    >
-                        <div
-                                class="alert alert-success"
-                                v-if="showAlertSuccess"
-                        >
-                            User success login
-                        </div>
-                        <div
-                                class="alert alert-danger"
-                                v-else
-                        >
-                            User failed login
-                        </div>
-                    </div>
                     <div class="v-popup-form">
                         <form @submit.prevent="signInForm">
                             <div class="mb-3">
@@ -84,13 +67,30 @@
                                             :class="showAccess ? 'show' : ''"
                                     >
                                         <div class="accordion-body">
-                                            <span>Username: <strong>admin</strong></span>
-                                            <span>Password: <strong>12345</strong></span>
+                                            <span>Username: <strong>WpAdmin</strong></span>
+                                            <span>Password: <strong>j0^X)gzdTgQ(d^sx&w@*ms7s</strong></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                    </div>
+                    <div
+                            class="v-popup-alert"
+                            v-if="showAlert"
+                    >
+                        <div
+                                class="alert alert-success"
+                                v-if="showAlertSuccess"
+                        >
+                            User success login
+                        </div>
+                        <div
+                                class="alert alert-danger"
+                                v-else
+                        >
+                            User failed login
+                        </div>
                     </div>
                 </div>
             </div>

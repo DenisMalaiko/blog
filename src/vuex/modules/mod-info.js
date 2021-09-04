@@ -35,7 +35,7 @@ export default {
     },
     actions: {
         GET_POSTS({commit}, pageParams){
-            return axios(`http://blog/wp-json/wp/v2/posts`, {
+            return axios(`http://blog-denis-malaiko.zzz.com.ua/wp-json/wp/v2/posts`, {
                 method: "GET",
                 params: {
                     page: pageParams.page,
@@ -52,7 +52,7 @@ export default {
             })
         },
         GET_POST({commit}, postId){
-            return axios(`http://blog/wp-json/wp/v2/posts`, {
+            return axios(`http://blog-denis-malaiko.zzz.com.ua/wp-json/wp/v2/posts`, {
                 method: "GET",
                 params: {
                     include: postId
@@ -65,7 +65,7 @@ export default {
             })
         },
         GET_CATEGORIES({commit}){
-            return axios(`http://blog/wp-json/wp/v2/categories`, {
+            return axios(`http://blog-denis-malaiko.zzz.com.ua/wp-json/wp/v2/categories`, {
                 method: "GET",
             }).then((data) => {
                 commit('CATEGORIES', data.data);

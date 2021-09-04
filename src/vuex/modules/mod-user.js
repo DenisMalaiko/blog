@@ -36,11 +36,12 @@ export default {
     actions: {
         SIGN_IN({commit}, data){
             commit('SIGN_IN_LOADING');
-            return axios('http://blog/wp-json/jwt-auth/v1/token', {
+            return axios('http://blog-denis-malaiko.zzz.com.ua/wp-json/jwt-auth/v1/token', {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 data: data
             }).then((user) => {
+
                 commit('SIGN_IN_SUCCESS', user.data);
                 return data;
             }).catch(() => {

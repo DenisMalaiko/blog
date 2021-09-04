@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-var STORAGE = localStorage,
-    API_TOKEN = STORAGE.getItem('API_TOKEN');
+// var API_TOKEN = localStorage.getItem('API_TOKEN');
 
 export default {
     namespaced: true,
@@ -25,10 +24,10 @@ export default {
             commit('POST_SEND_LOADING')
 
             // CREATE POST
-            return axios(`http://blog/wp-json/wp/v2/posts`, {
+            return axios(`http://blog-denis-malaiko.zzz.com.ua/wp-json/wp/v2/posts`, {
                 method: "POST",
                 headers: {
-                    'Authorization': `Bearer ${API_TOKEN}`
+                    'Authorization': `Bearer ${localStorage.getItem('API_TOKEN')}`
                 },
                 data: postData.postInfo
             }).then((data) => {
@@ -38,12 +37,12 @@ export default {
                 postData.postPhoto.append('post', postId);
 
                 // CREATE PHOTO
-                return axios(`http://blog/wp-json/wp/v2/media`, {
+                return axios(`http://blog-denis-malaiko.zzz.com.ua/wp-json/wp/v2/media`, {
                     method: "POST",
                     headers: {
                         'content-type' : 'multipart/form-data',
                         'Content-Disposition': 'filename=name-of-file.png',
-                        'Authorization': `Bearer ${API_TOKEN}`,
+                        'Authorization': `Bearer ${localStorage.getItem('API_TOKEN')}`,
                     },
                     data: postData.postPhoto,
                 }).then((data) => {
@@ -53,10 +52,10 @@ export default {
                     postData.postInfo.append('featured_media', postPhotoId);
 
                     // BIND PHOTO ID TO POST ID
-                    return axios(`http://blog/wp-json/wp/v2/posts/${postId}`, {
+                    return axios(`http://blog-denis-malaiko.zzz.com.ua/wp-json/wp/v2/posts/${postId}`, {
                         method: "POST",
                         headers: {
-                            'Authorization': `Bearer ${API_TOKEN}`,
+                            'Authorization': `Bearer ${localStorage.getItem('API_TOKEN')}`,
                         },
                         data: postData.postInfo,
                     }).then((data) => {

@@ -105,7 +105,7 @@
             },
             alert(){
                 this.loginStatus = false;
-                this.$router.push({name:'blog'});
+                this.$router.push({name:'posts'});
                 this.LOG_OUT();
                 localStorage.clear();
             },

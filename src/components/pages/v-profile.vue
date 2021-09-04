@@ -15,6 +15,23 @@
                             <vLoading />
                         </div>
                         <div class="v-profile-form" v-else>
+                            <div
+                                    class="v-profile-alert"
+                                    v-if="showAlert"
+                            >
+                                <div
+                                        class="alert alert-success"
+                                        v-if="showAlertSuccess"
+                                >
+                                    Post success added
+                                </div>
+                                <div
+                                        class="alert alert-danger"
+                                        v-else
+                                >
+                                    Post failed added
+                                </div>
+                            </div>
                             <form @submit.prevent="sendPost">
                                 <div class="mb-3">
                                     <h5>Add new post</h5>
@@ -88,23 +105,7 @@
                                     <button type="submit" class="btn btn-primary">Send post</button>
                                 </div>
                             </form>
-                            <div
-                                    class="v-profile-alert"
-                                    v-if="showAlert"
-                            >
-                                <div
-                                        class="alert alert-success"
-                                        v-if="showAlertSuccess"
-                                >
-                                    Post success added
-                                </div>
-                                <div
-                                        class="alert alert-danger"
-                                        v-else
-                                >
-                                    Post failed added
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
